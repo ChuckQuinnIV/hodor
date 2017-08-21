@@ -1,0 +1,9 @@
+{
+  "license": "MIT",
+  "scripts": {
+    "deploy": "./deploy.sh"
+  },
+  "dependencies": {
+    "alexa-sdk": "^1.0.11"
+  }
+}
