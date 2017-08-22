@@ -1,7 +1,7 @@
 'use strict';
 
 const Alexa = require('alexa-sdk');
-const APP_ID = '';
+const APP_ID = 'amzn1.ask.skill.c12c0383-89de-4c10-8d87-665dc2388f7b';
 
 const voice = {
   SKILL_NAME: 'Hodor',
@@ -23,15 +23,15 @@ const handlers = {
   'LaunchRequest': function () {
     this.attributes.speechOutput = voice.WELCOME_MESSAGE;
     this.attributes.repromptSpeech = voice.WELCOME_REPROMPT;
-    this.emit(':ask', this.attributes.speechOutput, this.attributes.repromptSpeech);
+    this.emit(':tell', this.attributes.speechOutput, this.attributes.repromptSpeech);
   },
   'AMAZON.HelpIntent': function () {
     this.attributes.speechOutput = voice.HELP_MESSAGE;
     this.attributes.repromptSpeech = voice.HELP_REPROMPT;
-    this.emit(':ask', this.attributes.speechOutput, this.attributes.repromptSpeech);
+    this.emit(':tell', this.attributes.speechOutput, this.attributes.repromptSpeech);
   },
   'AMAZON.RepeatIntent': function () {
-    this.emit(':ask', this.attributes.speechOutput, this.attributes.repromptSpeech);
+    this.emit(':tell', this.attributes.speechOutput, this.attributes.repromptSpeech);
   },
   'AMAZON.StopIntent': function () {
     this.emit('SessionEndedRequest');
@@ -45,6 +45,6 @@ const handlers = {
   'Unhandled': function () {
     this.attributes.speechOutput = voice.HELP_MESSAGE;
     this.attributes.repromptSpeech = voice.HELP_MESSAGE;
-    this.emit(':ask', this.attributes.speechOutput, this.attributes.repromptSpeech);
+    this.emit(':tell', this.attributes.speechOutput, this.attributes.repromptSpeech);
   }
 };
